@@ -9,9 +9,8 @@ class Book {
     public $cover;
     public $preview;
     public $pages;
-    public $price;
 
-    function __construct($title, $subtitle = "", $author, $firstEdition, $cover, $preview, $pages, $price) {
+    function __construct($title, $subtitle = "", $author, $firstEdition, $cover, $preview) {
 
         $this->title = $title;
         $this->subtitle = $subtitle;
@@ -19,15 +18,42 @@ class Book {
         $this->firstEdition = $firstEdition;
         $this->cover = $cover;
         $this->preview = $preview;
-        $this->pages = $pages;
-        $this->price = $price;
-
     }
 
 }
 
-$book1 = new Book("1984", "",  "George Orwell", 1949, "https://images-na.ssl-images-amazon.com/images/I/91SZSW8qSsL.jpg", "Chi controlla il passato controlla il futuro. Chi controlla il presente controlla il passato.", 432,  7.5);
+$book1 = new Book("1984", "",  "George Orwell", 1949, "https://images-na.ssl-images-amazon.com/images/I/91SZSW8qSsL.jpg", "Chi controlla il passato controlla il futuro. Chi controlla il presente controlla il passato.");
 
-$book2 = new Book("Sapiens", "Da animali a dei", "Yuval Noah Harari", 2011, "https://images-na.ssl-images-amazon.com/images/I/71zHwRhBC0L.jpg", "Harari racconta la storia dell'umanità dall'evoluzione delle specie umane arcaiche dell'età della pietra fino al XXI secolo, focalizzandosi sulla nostra specie umana, Homo sapiens, su ciò che siamo e su come lo siamo diventati, tramite un'analisi storica variegata che non tralascia la politica, l'economia, la biologia, e la filosofia.", 540, 15.2);
+$book2 = new Book("Sapiens", "Da animali a dei", "Yuval Noah Harari", 2011, "https://images-na.ssl-images-amazon.com/images/I/71zHwRhBC0L.jpg", "Harari racconta la storia dell'umanità dall'evoluzione delle specie umane arcaiche dell'età della pietra fino al XXI secolo, focalizzandosi sulla nostra specie umana, Homo sapiens, su ciò che siamo e su come lo siamo diventati, tramite un'analisi storica variegata che non tralascia la politica, l'economia, la biologia, e la filosofia.");
 
-var_dump($book1, $book2);
+$db = [
+    $book1,
+    $book2
+];
+
+?>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/style.css">
+        <title>libri</title>
+    </head>
+    <body>
+
+        <div class="container">
+            <?php foreach($db as $book) { ?>
+                <div class="card">
+                    <img src="<?= $book->cover ?>" alt="">
+                    <h2><?= $book->title ?></h2>
+                    <h3><?= $book->subtitle ?></h3>
+                    <h3><?= $book->author ?></h3>
+                    <small><?= $book->firstEdition ?></small>
+                    <p><?= $book->preview  ?></p>
+                </div>
+            <?php } ?>
+        </div>
+
+    </body>
+</html>

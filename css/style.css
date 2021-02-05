@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: arial;
+    background: #5596f1;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.container > .card {
+    border: 5px solid #000;
+    border-radius: 5px;
+    width: 300px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    background: #b8ecda;
+}
+
+h3, small {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.card > img {
+    max-width: 60%;
+}
