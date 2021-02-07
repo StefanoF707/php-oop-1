@@ -26,10 +26,16 @@ $book1 = new Book("1984", "",  "George Orwell", 1949, "https://images-na.ssl-ima
 
 $book2 = new Book("Sapiens", "Da animali a dei", "Yuval Noah Harari", 2011, "https://images-na.ssl-images-amazon.com/images/I/71zHwRhBC0L.jpg", "Harari racconta la storia dell'umanità dall'evoluzione delle specie umane arcaiche dell'età della pietra fino al XXI secolo, focalizzandosi sulla nostra specie umana, Homo sapiens, su ciò che siamo e su come lo siamo diventati, tramite un'analisi storica variegata che non tralascia la politica, l'economia, la biologia, e la filosofia.");
 
+$book3 = new Book($_POST["title"], $_POST["subtitle"], $_POST["author"], $_POST["firstEd"], $_POST["cover"], $_POST["preview"]);
+
 $db = [
     $book1,
-    $book2
+    $book2,
 ];
+
+if ($book3->title != "") {
+    $db[] = $book3;
+}
 
 ?>
 
@@ -37,7 +43,7 @@ $db = [
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/app.css">
         <title>libri</title>
     </head>
     <body>
@@ -54,6 +60,9 @@ $db = [
                 </div>
             <?php } ?>
         </div>
+
+        <a href="form.php" class="bookBtn">Aggiungi un nuovo libro</a>
+
 
     </body>
 </html>
